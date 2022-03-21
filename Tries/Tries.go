@@ -39,10 +39,42 @@ func (t *Trie) Insert(w string){
 	fmt.Println("word is inserted to trie")
 }
 
-// Search
+// Search - Return true if word is included in.
+func (t *Trie) Search(w string)bool{
+	wordLength := len(w)
+	currentNode := t.root
+	for i:=0; i<wordLength; i++{
+		charIndex := w[i] - 'a'
+		if currentNode.children[charIndex] == nil{
+			return false
+		}
+		currentNode = currentNode.children[charIndex]
+	}
+	if currentNode.isEnd == true{
+		fmt.Printf("%s is included in the trie", w)
+		return true
+	}
+	return false
+}
 
 func main() {
-	testTrie := InitTrie()
-	fmt.Println(testTrie.root)
-	testTrie.Insert("orc")
+	countryTrie := InitTrie()
+	
+	toAdd := []string{
+		"england",
+		"france",
+		"germany",
+		"netherlands",
+		"sweden",
+		"norway",
+		"spain",
+		"denmark",
+		"turkey",
+		"greece",
+	}
+	
+	for _, v := range toAdd{
+		countryTrie.Insert(v)
+	}
+	fmt.Println(countryTrie.Search("germany"))
 }
