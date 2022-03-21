@@ -36,7 +36,7 @@ func (t *Trie) Insert(w string){
 		currentNode = currentNode.children[charIndex]
 	}
 	currentNode.isEnd = true
-	fmt.Println("word is inserted to trie")
+	fmt.Printf("%s is inserted to trie\n", w)
 }
 
 // Search - Return true if word is included in.
@@ -51,7 +51,7 @@ func (t *Trie) Search(w string)bool{
 		currentNode = currentNode.children[charIndex]
 	}
 	if currentNode.isEnd == true{
-		fmt.Printf("%s is included in the trie", w)
+		fmt.Printf("Gotcha!, %s is included in the trie\n", w)
 		return true
 	}
 	return false
