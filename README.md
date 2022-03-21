@@ -77,4 +77,4 @@ true
 
 ## Licence
 
-[MIT](LICENCE)
+[MIT](LICENSE)
