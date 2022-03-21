@@ -24,11 +24,25 @@ func InitTrie() *Trie {
 	return result
 }
 
-// Insert
+// Insert - Adds a word in Trie structure
+func (t *Trie) Insert(w string){
+	wordLength := len(w)
+	currentNode := t.root
+	for i:=0; i<wordLength; i++{
+		charIndex := w[i] - 'a'
+		if currentNode.children[charIndex] == nil{
+			currentNode.children[charIndex] = &Node{}
+		}
+		currentNode = currentNode.children[charIndex]
+	}
+	currentNode.isEnd = true
+	fmt.Println("word is inserted to trie")
+}
 
 // Search
 
 func main() {
 	testTrie := InitTrie()
 	fmt.Println(testTrie.root)
+	testTrie.Insert("orc")
 }
