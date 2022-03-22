@@ -46,6 +46,7 @@ Trie is a tree type data structure which is used to store words. Like Trees, it 
         "denmark",
         "turkey",
         "greece",
+	"hungary",
     }
 
     for _, v := range toAdd{
